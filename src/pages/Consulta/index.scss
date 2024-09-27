@@ -1,0 +1,51 @@
+.pagina-consulta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  .consultar {
+    padding: 10vh 0vw;
+
+    button {
+      display: flex;
+      text-decoration: none;
+      font-weight: 600;
+      color: red;
+      text-shadow: 0px 0px 100px 0px #000;
+      width: 12vw;
+      height: 7vh;
+      border-radius: 12px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5vh;
+    }
+
+    button:hover {
+      text-decoration: none;
+      font-weight: 600;
+      color: red;
+      text-shadow: 0px 0px 100px 0px #000;
+      background-color: #000;
+      transition: 0.3s;
+      color: #fff;
+      border: none;
+    }
+
+    table {
+      width: 1200px;
+  
+      th {
+        text-align: left;
+        padding: 5px;
+      }
+  
+      td {
+        padding: 5px;
+        border-top: 1px solid #000;
+      }
+    }
+  }
+}
