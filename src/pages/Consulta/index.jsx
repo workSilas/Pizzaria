@@ -1,19 +1,25 @@
 import './index.scss';
 import Nav from '../../components/Nav';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function Consulta() {
 
-  const [produto, setpProduto] = useState([]);
+  const [produto, setProduto] = useState([]);
 
 
   async function buscar() {
     const url = 'http://localhost:3030/pizzaria/consulta/';
     let resp = await axios.get(url);
-    setpProduto(resp.data);
+    setProduto(resp.data);
   }
+
+  
+  useEffect(() => {
+    buscar()
+  }, [])
+
 
   return (
     <div className="pagina-consulta">
@@ -29,8 +35,6 @@ export default function Consulta() {
         link4="Alterar"
       />
       <div className='consultar'>
-        <button onClick={buscar}>Atualizar</button>
-
         <table>
           <thead>
             <tr>

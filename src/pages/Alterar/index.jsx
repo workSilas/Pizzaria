@@ -1,10 +1,10 @@
 import './index.scss';
 import Nav from '../../components/Nav';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Alterar() {
-  
+
   const [nome, setNome] = useState('');
   const [valor, setValor] = useState('');
   const [descricao, setDescricao] = useState('');
@@ -25,6 +25,18 @@ export default function Alterar() {
     alert('Produto alterado');
   }
 
+  async function buscar() {
+    const url = 'http://localhost:3030/pizzaria/consulta/' + id;
+    let dados = await axios.get(url);
+    setNome(dados.data.nome)
+    setValor(dados.data.valor)
+    setDescricao(dados.data.descricao)
+    setQuantidade(dados.data.quantidade)
+  }
+
+    useEffect(() => {
+      buscar()
+    }, [id])
 
   return (
     <div className="Alterar">
